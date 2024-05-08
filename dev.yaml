@@ -31,3 +31,11 @@ spec:
           - CreateNamespace=true
           - ApplyOutOfSyncOnly=true
           - PruneLast=true
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+  labels:
+    name: dev

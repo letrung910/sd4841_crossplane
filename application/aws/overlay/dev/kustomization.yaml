@@ -11,3 +11,4 @@ patchesStrategicMerge:
 commonLabels:
   environment: dev
 
+namespace: dev
