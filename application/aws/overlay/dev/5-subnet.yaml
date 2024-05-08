@@ -16,7 +16,7 @@ spec:
       Name: private-subnet-1
       kubernetes.io/cluster/dev-demo: "owned"
     vpcIdRef:
-      name: dev-vpc-main
+      name: vpc-main
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
@@ -35,7 +35,7 @@ spec:
       Name: private-subnet-2
       kubernetes.io/cluster/dev-demo: "owned"
     vpcIdRef:
-      name: dev-vpc-main
+      name: vpc-main
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
@@ -54,7 +54,7 @@ spec:
       Name: public-subnet-1
       kubernetes.io/cluster/dev-demo: "owned"
     vpcIdRef:
-      name: dev-vpc-main
+      name: vpc-main
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
@@ -73,4 +73,4 @@ spec:
       Name: public-subnet-2
       kubernetes.io/cluster/dev-demo: "owned"
     vpcIdRef:
-      name: dev-vpc-main
+      name: vpc-main

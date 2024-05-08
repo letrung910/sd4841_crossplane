@@ -11,5 +11,3 @@ patchesStrategicMerge:
 commonLabels:
   environment: dev
 
-namePrefix: dev-
-namespace: dev-aws

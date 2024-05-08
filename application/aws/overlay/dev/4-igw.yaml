@@ -11,6 +11,6 @@ spec:
   forProvider:
     region: us-east-1
     tags:
-      Name: dev-igw
+      Name: igw
     vpcIdRef:
-      name: dev-vpc-main
+      name: vpc-main
