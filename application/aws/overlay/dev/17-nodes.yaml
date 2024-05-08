@@ -11,7 +11,7 @@ spec:
     name: aws-provider
   forProvider:
     clusterNameRef:
-      name: eks-created-by-crossplane
+      name: dev-eks-created-by-crossplane
     nodeRoleArnRef:
       name: ex-eks-nodes-role
     region: us-east-1
@@ -24,8 +24,8 @@ spec:
         minSize: 1
         maxSize: 2
     subnetIdRefs:
-      - name: dev-private-us-east-1a
-      - name: dev-private-us-east-1b
+      - name: private-subnet-1
+      - name: private-subnet-2
 ---
 apiVersion: eks.aws.upbound.io/v1beta1
 kind: NodeGroup
@@ -39,7 +39,7 @@ spec:
     name: aws-provider
   forProvider:
     clusterNameRef:
-      name: eks-created-by-crossplane
+      name: dev-eks-created-by-crossplane
     nodeRoleArnRef:
       name: ex-eks-nodes-role
     region: us-east-1
@@ -56,5 +56,5 @@ spec:
         minSize: 1
         maxSize: 2
     subnetIdRefs:
-      - name: dev-private-us-east-1a
-      - name: dev-private-us-east-1b
+      - name: private-subnet-1
+      - name: private-subnet-2

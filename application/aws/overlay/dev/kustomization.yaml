@@ -8,7 +8,11 @@ patchesStrategicMerge:
 - 4-igw.yaml
 - 5-subnet.yaml
 - 7-nat.yaml
+
+resources:
+- 14-eks.yaml
+- 17-nodes.yaml
+
 commonLabels:
   environment: dev
 
-namespace: dev

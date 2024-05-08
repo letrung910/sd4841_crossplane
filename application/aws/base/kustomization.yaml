@@ -13,7 +13,10 @@ resources:
 - 9-route.yaml
 - 10-provider-aws-iam.yaml
 - 11-provider-aws-eks.yaml
-
+- 12-eks-iam-role.yaml
+- 13-eks-iam-role-attachment.yaml
+- 15-nodes-iam-role.yaml
+- 16-nodes-iam-role-attachment.yaml
 
 commonAnnotations:
   argocd.argoproj.io/sync-options: "SkipDryRunOnMissingResource=true"

@@ -3,7 +3,7 @@
 apiVersion: iam.aws.upbound.io/v1beta1
 kind: RolePolicyAttachment
 metadata:
-  name: dev-demo-eks-nodes-amazon-eks-worker-node-policy
+  name: demo-eks-nodes-amazon-eks-worker-node-policy
   annotations:
     argocd.argoproj.io/sync-wave: "16"
 
@@ -17,7 +17,7 @@ spec:
 apiVersion: iam.aws.upbound.io/v1beta1
 kind: RolePolicyAttachment
 metadata:
-  name: dev-demo-eks-nodes-amazon-eks-cni-policy
+  name: demo-eks-nodes-amazon-eks-cni-policy
   annotations:
     argocd.argoproj.io/sync-wave: "16"
 
@@ -31,7 +31,7 @@ spec:
 apiVersion: iam.aws.upbound.io/v1beta1
 kind: RolePolicyAttachment
 metadata:
-  name: dev-demo-eks-nodes-amazon-ec2-container-registry-read-only
+  name: demo-eks-nodes-amazon-ec2-container-registry-read-only
   annotations:
     argocd.argoproj.io/sync-wave: "16"
 

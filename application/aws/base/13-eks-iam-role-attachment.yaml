@@ -2,7 +2,7 @@
 apiVersion: iam.aws.upbound.io/v1beta1
 kind: RolePolicyAttachment
 metadata:
-  name: dev-eks-cluster-amazon-eks-cluster-policy
+  name: eks-cluster-amazon-eks-cluster-policy
   annotations:
     argocd.argoproj.io/sync-wave: "13"
 
