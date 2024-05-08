@@ -2,7 +2,7 @@
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTable
 metadata:
-  name: dev-private
+  name: routetable-private
   annotations:
     argocd.argoproj.io/sync-wave: "8"
 spec:
@@ -11,15 +11,15 @@ spec:
   forProvider:
     region: us-east-1
     tags:
-      Name: dev-private
+      Name: routetable-private
     vpcIdRef:
-      name: dev-main
+      name: vpc-main
 ---
 
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTable
 metadata:
-  name: dev-public
+  name: routetable-public
   annotations:
     argocd.argoproj.io/sync-wave: "8"
 spec:
@@ -28,6 +28,6 @@ spec:
   forProvider:
     region: us-east-1
     tags:
-      Name: dev-public
+      Name: routetable-public
     vpcIdRef:
-      name: dev-main
+      name: vpc-main

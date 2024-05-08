@@ -2,7 +2,7 @@
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Route
 metadata:
-  name: dev-private
+  name: route-private
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 
@@ -12,15 +12,15 @@ spec:
   forProvider:
     destinationCidrBlock: 0.0.0.0/0
     natGatewayIdRef:
-      name: dev-nat
+      name: natgw
     region: us-east-1
     routeTableIdRef:
-      name: dev-private
+      name: routetable-private
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Route
 metadata:
-  name: dev-public
+  name: route-public
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 
@@ -30,15 +30,15 @@ spec:
   forProvider:
     destinationCidrBlock: 0.0.0.0/0
     gatewayIdRef:
-      name: dev-igw
+      name: igw
     region: us-east-1
     routeTableIdRef:
-      name: dev-public
+      name: routetable-public
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
 metadata:
-  name: dev-private-us-east-1a
+  name: private-1
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 
@@ -48,14 +48,14 @@ spec:
   forProvider:
     region: us-east-1
     routeTableIdRef:
-      name: dev-private
+      name: routetable-private
     subnetIdRef:
-      name: dev-private-us-east-1a
+      name: private-subnet-1
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
 metadata:
-  name: dev-private-us-east-1b
+  name: private-2
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 
@@ -65,14 +65,14 @@ spec:
   forProvider:
     region: us-east-1
     routeTableIdRef:
-      name: dev-private
+      name: routetable-private
     subnetIdRef:
-      name: dev-private-us-east-1b
+      name: private-subnet-2
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
 metadata:
-  name: dev-public-us-east-1a
+  name: public-1
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 
@@ -82,14 +82,14 @@ spec:
   forProvider:
     region: us-east-1
     routeTableIdRef:
-      name: dev-public
+      name: routetable-public
     subnetIdRef:
-      name: dev-public-us-east-1a
+      name: public-subnet-1
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
 metadata:
-  name: dev-public-us-east-1b
+  name: public-2
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 
@@ -99,6 +99,6 @@ spec:
   forProvider:
     region: us-east-1
     routeTableIdRef:
-      name: dev-public
+      name: routetable-public
     subnetIdRef:
-      name: dev-public-us-east-1b
+      name: public-subnet-2
