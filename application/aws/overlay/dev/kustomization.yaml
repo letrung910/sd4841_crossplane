@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../../base
+
+patchesStrategicMerge:
+- 3-vpc.yaml
+- 4-igw.yaml
+- 5-subnet.yaml
+- 7-nat.yaml
+commonLabels:
+  environment: dev
+
+namePrefix: dev-
+namespace: dev-aws

@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- 0-provider-aws.yaml
+- 1-provider-aws-config.yaml
+- 2-provider-aws-ec2.yaml
+- 3-vpc.yaml
+- 4-igw.yaml
+- 5-subnet.yaml
+- 6-EIP.yaml
+- 7-nat.yaml
+
+commonAnnotations:
+  argocd.argoproj.io/sync-options: "SkipDryRunOnMissingResource=true"
+  test: "1111"
+
+commonLabels:
+  project: sd4841

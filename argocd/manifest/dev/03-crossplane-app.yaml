@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aws-test
+  namespace: argocd
+spec:
+  destination:
+    name: in-cluster
+  project: dev-sd4841-project
+  source:
+    path: application/aws/overlay/test
+    repoURL: https://github.com/letrung910/sd4841_crossplane.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+    # kustomize:
+    #   version: v2.3.0

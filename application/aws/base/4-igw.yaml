@@ -1,0 +1,10 @@
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: InternetGateway
+metadata:
+  name: igw
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig

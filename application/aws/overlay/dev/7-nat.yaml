@@ -1,0 +1,14 @@
+
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: NATGateway
+metadata:
+  name: natgw
+  annotations:
+    argocd.argoproj.io/sync-wave: "7"
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig
+  forProvider:
+    tags:
+      Name: dev-natgw
