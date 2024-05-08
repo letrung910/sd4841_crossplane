@@ -8,7 +8,7 @@ spec:
     name: in-cluster
   project: dev-sd4841-project
   source:
-    path: application/aws/overlay/test
+    path: application/aws/overlay/dev
     repoURL: https://github.com/letrung910/sd4841_crossplane.git
     targetRevision: main
   syncPolicy:

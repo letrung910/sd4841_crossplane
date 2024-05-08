@@ -18,7 +18,7 @@ spec:
       project: default
       source:
         repoURL: 'https://github.com/letrung910/sd4841_crossplane.git'
-        path: "manifest/{{env}}"
+        path: "argocd/manifest/{{env}}"
         targetRevision: "main"
       destination:
         server: 'https://kubernetes.default.svc'
