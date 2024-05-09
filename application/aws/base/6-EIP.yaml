@@ -5,7 +5,7 @@ metadata:
   name: eip
   annotations:
     argocd.argoproj.io/sync-wave: "6"
-  label:
+  labels:
     name: eip
 spec:
   providerConfigRef:

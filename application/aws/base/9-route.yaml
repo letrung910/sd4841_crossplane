@@ -5,7 +5,7 @@ metadata:
   name: route-private
   annotations:
     argocd.argoproj.io/sync-wave: "9"
-  label:
+  labels:
     name: route-private
 
 spec:
@@ -22,7 +22,7 @@ metadata:
   name: route-public
   annotations:
     argocd.argoproj.io/sync-wave: "9"
-  label:
+  labels:
     name: route-public
 spec:
   providerConfigRef:
@@ -38,7 +38,7 @@ metadata:
   name: private-1
   annotations:
     argocd.argoproj.io/sync-wave: "9"
-  label:
+  labels:
     name: private-1
 spec:
   providerConfigRef:
@@ -53,7 +53,7 @@ metadata:
   name: private-2
   annotations:
     argocd.argoproj.io/sync-wave: "9"
-  label:
+  labels:
     name: private-2
 spec:
   providerConfigRef:
@@ -68,7 +68,7 @@ metadata:
   name: public-1
   annotations:
     argocd.argoproj.io/sync-wave: "9"
-  label:
+  labels:
     name: public-1
 spec:
   providerConfigRef:
@@ -83,7 +83,7 @@ metadata:
   name: public-2
   annotations:
     argocd.argoproj.io/sync-wave: "9"
-  label:
+  labels:
     name: public-2
 spec:
   providerConfigRef:

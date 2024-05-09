@@ -6,7 +6,7 @@ metadata:
   name: natgw
   annotations:
     argocd.argoproj.io/sync-wave: "7"
-  label:
+  labels:
     name: natgw
 spec:
   providerConfigRef:

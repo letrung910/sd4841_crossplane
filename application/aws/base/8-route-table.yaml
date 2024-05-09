@@ -5,7 +5,7 @@ metadata:
   name: routetable-private
   annotations:
     argocd.argoproj.io/sync-wave: "8"
-  label:
+  labels:
     name: routetable-private
 spec:
   providerConfigRef:
@@ -23,7 +23,7 @@ metadata:
   name: routetable-public
   annotations:
     argocd.argoproj.io/sync-wave: "8"
-  label:
+  labels:
     name: routetable-public
 spec:
   providerConfigRef:

@@ -5,8 +5,7 @@ metadata:
   name: igw
   annotations:
     argocd.argoproj.io/sync-wave: "4"
-  label:
-    name: igw
+
 
 spec:
   providerConfigRef:
