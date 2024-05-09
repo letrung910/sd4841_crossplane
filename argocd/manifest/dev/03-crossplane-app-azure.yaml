@@ -11,8 +11,18 @@ spec:
     path: application/azure/overlay/dev
     repoURL: https://github.com/letrung910/sd4841_crossplane.git
     targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: crossplane-system
   syncPolicy:
     automated:
-      selfHeal: true
-    # kustomize:
-    #   version: v2.3.0
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    retry:
+      limit: 10
+      backoff:
+        duration: 15s
+        factor: 2
+        maxDuration: 3m
