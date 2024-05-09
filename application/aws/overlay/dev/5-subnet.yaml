@@ -73,7 +73,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"
   labels:
-    name: public-subnet-1
+    name: public-subnet-2
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
