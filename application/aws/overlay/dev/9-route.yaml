@@ -41,7 +41,10 @@ spec:
         project: sd4841
         name: igw
     routeTableIdSelector:
-      name: routetable-public
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: routetable-public
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
