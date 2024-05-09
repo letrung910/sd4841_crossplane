@@ -11,7 +11,7 @@ spec:
     name: aws-provider
   forProvider:
     clusterNameRef:
-      name: dev-eks-created-by-crossplane
+      name: test-eks-created-by-crossplane
     nodeRoleArnRef:
       name: ex-eks-nodes-role
     region: us-east-1
@@ -39,7 +39,7 @@ spec:
     name: aws-provider
   forProvider:
     clusterNameRef:
-      name: dev-eks-created-by-crossplane
+      name: test-eks-created-by-crossplane
     nodeRoleArnRef:
       name: ex-eks-nodes-role
     region: us-east-1

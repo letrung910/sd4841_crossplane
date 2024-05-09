@@ -12,5 +12,5 @@ spec:
   providerConfigRef:
     name: aws-provider
   forProvider:
-    role: eks-ex-cluster-role
+    role: test-eks-ex-cluster-role
     policyArn: arn:aws:iam::aws:policy/AmazonEKSClusterPolicy

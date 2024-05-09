@@ -10,7 +10,8 @@ patchesStrategicMerge:
 - 7-nat.yaml
 - 8-route-table.yaml
 - 9-route.yaml
-
+- 13-eks-iam-role-attachment.yaml
+- 16-nodes-iam-role-attachment.yaml
 resources:
 - 14-eks.yaml
 - 17-nodes.yaml

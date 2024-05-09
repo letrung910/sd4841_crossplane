@@ -13,7 +13,7 @@ spec:
   providerConfigRef:
     name: aws-provider
   forProvider:
-    role: ex-eks-nodes-role
+    role: test-ex-eks-nodes-role
     policyArn: arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
 ---
 apiVersion: iam.aws.upbound.io/v1beta1
@@ -28,7 +28,7 @@ spec:
   providerConfigRef:
     name: aws-provider
   forProvider:
-    role: ex-eks-nodes-role
+    role: test-ex-eks-nodes-role
     policyArn: arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
 ---
 apiVersion: iam.aws.upbound.io/v1beta1
@@ -43,5 +43,5 @@ spec:
   providerConfigRef:
     name: aws-provider
   forProvider:
-    role: ex-eks-nodes-role
+    role: test-ex-eks-nodes-role
     policyArn: arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly

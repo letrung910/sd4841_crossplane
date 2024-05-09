@@ -6,6 +6,8 @@ metadata:
     uptest.upbound.io/timeout: "2400"
     argocd.argoproj.io/sync-wave: "14"
   name: eks-created-by-crossplane
+  labels:
+    name: eks-created-by-crossplane
 spec:
   providerConfigRef:
     name: aws-provider
@@ -13,7 +15,7 @@ spec:
     version: "1.27"
     region: us-east-1
     roleArnRef:
-      name: eks-ex-cluster-role
+      name: dev-eks-ex-cluster-role
     vpcConfig:
       - endpointPrivateAccess: false
         endpointPublicAccess: true

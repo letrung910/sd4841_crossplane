@@ -13,7 +13,7 @@ spec:
     clusterNameRef:
       name: dev-eks-created-by-crossplane
     nodeRoleArnRef:
-      name: ex-eks-nodes-role
+      name: dev-ex-eks-nodes-role
     region: us-east-1
     capacityType: ON_DEMAND
     instanceTypes: ["t3.small"]
@@ -41,7 +41,7 @@ spec:
     clusterNameRef:
       name: dev-eks-created-by-crossplane
     nodeRoleArnRef:
-      name: ex-eks-nodes-role
+      name: dev-ex-eks-nodes-role
     region: us-east-1
     capacityType: SPOT
     instanceTypes: ["t3.small"]

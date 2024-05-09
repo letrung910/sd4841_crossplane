@@ -5,6 +5,8 @@ metadata:
   name:  ex-eks-nodes-role
   annotations:
     argocd.argoproj.io/sync-wave: "15"
+  labels:
+    name: ex-eks-nodes-role
 
 spec:
   providerConfigRef:

@@ -5,6 +5,8 @@ metadata:
   name: eks-ex-cluster-role
   annotations:
     argocd.argoproj.io/sync-wave: "12"
+  labels:
+    name: eks-ex-cluster-role
 
 spec:
   providerConfigRef:
