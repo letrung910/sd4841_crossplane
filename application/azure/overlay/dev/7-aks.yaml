@@ -14,8 +14,7 @@ spec:
       - name: default
         nodeCount: 1
         vmSize: Standard_D2_v2
-        vnetSubnetIdRef:
-          name: dev-sub-crossplane
+        vnetSubnetId: /subscriptions/08ee43e5-09b4-41b0-ba99-0d04d8981913/resourceGroups/dev-crossplane-rg-aks/providers/Microsoft.Network/virtualNetworks/dev-vn-crossplane/subnets/dev-sub-crossplane
         # vnetSubnetIdSelector:
         #   matchLabels:
         #     name: sub-crossplane
