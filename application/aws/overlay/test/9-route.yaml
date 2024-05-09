@@ -1,0 +1,139 @@
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Route
+metadata:
+  name: route-private
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+  labels:
+    name: route-private
+
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig
+  forProvider:
+    natGatewayIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: natgw
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: routetable-private
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Route
+metadata:
+  name: route-public
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+  labels:
+    name: route-public
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig
+  forProvider:
+    gatewayIdSelector:
+      matchLabels:
+        environment: test
+        project: sd4841
+        name: igw
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: routetable-public
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: private-1
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+  labels:
+    name: private-1
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig
+  forProvider:
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: routetable-private
+    subnetIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: private-subnet-1
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: private-2
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+  labels:
+    name: private-2
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig
+  forProvider:
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: routetable-private
+    subnetIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: private-subnet-2
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: public-1
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+  labels:
+    name: public-1
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig
+  forProvider:
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: routetable-public
+    subnetIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: public-subnet-1
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: public-2
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+  labels:
+    name: public-2
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig
+  forProvider:
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: routetable-public
+    subnetIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: test
+        name: public-subnet-2

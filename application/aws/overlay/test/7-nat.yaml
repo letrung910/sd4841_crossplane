@@ -10,5 +10,12 @@ spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
   forProvider:
-    tags:
-      Name: natgw
+    allocationIdSelector:
+      matchLabels:
+        project: sd4841
+        name: eip
+    subnetIdSelector:
+      matchLabels:
+        name: public-subnet-1
+        project: sd4841
+        environment: test

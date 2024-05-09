@@ -5,6 +5,8 @@ metadata:
   name: igw
   annotations:
     argocd.argoproj.io/sync-wave: "4"
+  labels:
+    name: igw
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
@@ -12,5 +14,8 @@ spec:
     region: us-east-1
     tags:
       Name: igw
-    vpcIdRef:
-      name: vpc-main
+    vpcIdSelector:
+      matchLabels:
+        name: vpc-main
+        project: sd4841
+        environment: test

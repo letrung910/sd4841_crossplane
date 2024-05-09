@@ -5,7 +5,7 @@ metadata:
   annotations:
     uptest.upbound.io/timeout: "2400"
     argocd.argoproj.io/sync-wave: "14"
-  name: test-eks-created-by-crossplane
+  name: eks-created-by-crossplane
 spec:
   providerConfigRef:
     name: aws-provider
@@ -17,6 +17,12 @@ spec:
     vpcConfig:
       - endpointPrivateAccess: false
         endpointPublicAccess: true
-        subnetIdRefs:
-          - name: private-subnet-1
-          - name: private-subnet-2
+        subnetIdSelector:
+          - matchLabels:
+              name: private-subnet-1
+              project: sd4841
+              environment: test
+          - matchLabels:
+              name: private-subnet-2
+              project: sd4841
+              environment: test

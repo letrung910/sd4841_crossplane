@@ -1,0 +1,39 @@
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTable
+metadata:
+  name: routetable-private
+  annotations:
+    argocd.argoproj.io/sync-wave: "8"
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig
+  forProvider:
+    region: us-east-1
+    tags:
+      Name: routetable-private
+    vpcIdSelector:
+      matchLabels:
+        name: vpc-main
+        project: sd4841
+        environment: test
+---
+
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTable
+metadata:
+  name: routetable-public
+  annotations:
+    argocd.argoproj.io/sync-wave: "8"
+spec:
+  providerConfigRef:
+    name: aws-provider  # This line points to your specific ProviderConfig
+  forProvider:
+    region: us-east-1
+    tags:
+      Name: routetable-public
+    vpcIdSelector:
+      matchLabels:
+        name: vpc-main
+        project: sd4841
+        environment: test

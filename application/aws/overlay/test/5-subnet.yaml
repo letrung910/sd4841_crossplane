@@ -15,8 +15,12 @@ spec:
     tags:
       Name: private-subnet-1
       kubernetes.io/cluster/dev-demo: "owned"
-    vpcIdRef:
-      name: vpc-main
+    vpcIdSelector:
+      matchLabels:
+        name: vpc-main
+        project: sd4841
+        environment: test
+
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
@@ -34,8 +38,11 @@ spec:
     tags:
       Name: private-subnet-2
       kubernetes.io/cluster/dev-demo: "owned"
-    vpcIdRef:
-      name: vpc-main
+    vpcIdSelector:
+      matchLabels:
+        name: vpc-main
+        project: sd4841
+        environment: test
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
@@ -53,8 +60,11 @@ spec:
     tags:
       Name: public-subnet-1
       kubernetes.io/cluster/dev-demo: "owned"
-    vpcIdRef:
-      name: vpc-main
+    vpcIdSelector:
+      matchLabels:
+        name: vpc-main
+        project: sd4841
+        environment: test
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
@@ -63,7 +73,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"
   labels:
-    name: public-subnet-1
+    name: public-subnet-2
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
@@ -72,5 +82,8 @@ spec:
     tags:
       Name: public-subnet-2
       kubernetes.io/cluster/dev-demo: "owned"
-    vpcIdRef:
-      name: vpc-main
+    vpcIdSelector:
+      matchLabels:
+        name: vpc-main
+        project: sd4841
+        environment: test

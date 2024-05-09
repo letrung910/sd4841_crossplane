@@ -16,16 +16,22 @@ spec:
       name: ex-eks-nodes-role
     region: us-east-1
     capacityType: ON_DEMAND
-    instanceTypes: ["t3.medium"]
+    instanceTypes: ["t3.small"]
     labels:
       role: general
     scalingConfig:
       - desiredSize: 1
         minSize: 1
         maxSize: 2
-    subnetIdRefs:
-      - name: private-subnet-1
-      - name: private-subnet-2
+    subnetIdSelector:
+      - matchLabels:
+          name: private-subnet-1
+          project: sd4841
+          environment: test
+      - matchLabels:
+          name: private-subnet-2
+          project: sd4841
+          environment: test
 ---
 apiVersion: eks.aws.upbound.io/v1beta1
 kind: NodeGroup
@@ -44,7 +50,7 @@ spec:
       name: ex-eks-nodes-role
     region: us-east-1
     capacityType: SPOT
-    instanceTypes: ["t3.medium"]
+    instanceTypes: ["t3.small"]
     labels:
       role: spot
     taint:
@@ -55,6 +61,12 @@ spec:
       - desiredSize: 1
         minSize: 1
         maxSize: 2
-    subnetIdRefs:
-      - name: private-subnet-1
-      - name: private-subnet-2
+    subnetIdSelector:
+      - matchLabels:
+          name: private-subnet-1
+          project: sd4841
+          environment: test
+      - matchLabels:
+          name: private-subnet-2
+          project: sd4841
+          environment: test
