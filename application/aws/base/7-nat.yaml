@@ -6,14 +6,13 @@ metadata:
   name: natgw
   annotations:
     argocd.argoproj.io/sync-wave: "7"
+  label:
+    name: natgw
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
   forProvider:
+    tags:
+      Name: natgw
     region: us-east-1
     connectivityType: public
-    allocationIdRef:
-      name: eip
-    subnetIdSelector:
-      matchLabels:
-        name: public-subnet-1

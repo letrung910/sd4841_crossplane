@@ -12,5 +12,8 @@ spec:
     region: us-east-1
     tags:
       Name: igw
-    vpcIdRef:
-      name: vpc-main
+    vpcIdSelector:
+      matchLabels:
+        name: vpc-main
+        project: sd4841
+        environment: dev

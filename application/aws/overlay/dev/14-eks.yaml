@@ -17,6 +17,12 @@ spec:
     vpcConfig:
       - endpointPrivateAccess: false
         endpointPublicAccess: true
-        subnetIdRefs:
-          - name: private-subnet-1
-          - name: private-subnet-2
+        subnetIdSelector:
+          - matchLabels:
+              name: private-subnet-1
+              project: sd4841
+              environment: dev
+          - matchLabels:
+              name: private-subnet-2
+              project: sd4841
+              environment: dev

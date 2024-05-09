@@ -5,6 +5,8 @@ metadata:
   name: eip
   annotations:
     argocd.argoproj.io/sync-wave: "6"
+  label:
+    name: eip
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig

@@ -5,8 +5,8 @@ metadata:
   name: private-subnet-1
   annotations:
     argocd.argoproj.io/sync-wave: "5"
-  # labels:
-  #   name: private-us-east-1a
+  labels:
+    name: private-subnet-1
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
@@ -15,8 +15,7 @@ spec:
     region: us-east-1
     tags:
       kubernetes.io/role/internal-elb: "1"
-    vpcIdRef:
-      name: dev-main
+
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
@@ -24,8 +23,8 @@ metadata:
   name: private-subnet-2
   annotations:
     argocd.argoproj.io/sync-wave: "5"
-  # labels:
-  #   name: private-us-east-1b
+  labels:
+    name: private-subnet-2
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
@@ -34,8 +33,7 @@ spec:
     region: us-east-1
     tags:
       kubernetes.io/role/internal-elb: "1"
-    vpcIdRef:
-      name: dev-main
+
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
@@ -43,8 +41,8 @@ metadata:
   name: public-subnet-1
   annotations:
     argocd.argoproj.io/sync-wave: "5"
-  # labels:
-  #   name: dev-public-us-east-1a
+  labels:
+    name: public-subnet-1
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
@@ -53,8 +51,7 @@ spec:
     region: us-east-1
     tags:
       kubernetes.io/role/elb: "1"
-    vpcIdRef:
-      name: dev-main
+
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Subnet
@@ -62,8 +59,8 @@ metadata:
   name: public-subnet-2
   annotations:
     argocd.argoproj.io/sync-wave: "5"
-  # labels:
-  #   name: dev-public-us-east-1b
+  labels:
+    name: public-subnet-2
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
@@ -72,5 +69,3 @@ spec:
     region: us-east-1
     tags:
       kubernetes.io/role/elb: "1"
-    vpcIdRef:
-      name: dev-main

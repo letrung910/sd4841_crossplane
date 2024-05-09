@@ -8,6 +8,8 @@ patchesStrategicMerge:
 - 4-igw.yaml
 - 5-subnet.yaml
 - 7-nat.yaml
+- 8-route-table.yaml
+- 9-route.yaml
 
 resources:
 - 14-eks.yaml
@@ -16,4 +18,4 @@ resources:
 commonLabels:
   environment: dev
 
-# namePrefix: dev-
+namePrefix: dev-

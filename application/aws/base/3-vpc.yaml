@@ -5,6 +5,8 @@ metadata:
   name: vpc-main
   annotations:
     argocd.argoproj.io/sync-wave: "3"
+  labels:
+    name: vpc-main
 spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig

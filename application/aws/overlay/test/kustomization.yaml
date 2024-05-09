@@ -16,4 +16,4 @@ resources:
 commonLabels:
   environment: test
 
-# namePrefix: test-
+namePrefix: test-

@@ -12,9 +12,16 @@ spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
   forProvider:
-    destinationCidrBlock: 0.0.0.0/0
-    region: us-east-1
-
+    natGatewayIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: natgw
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: routetable-private
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: Route
@@ -28,9 +35,13 @@ spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
   forProvider:
-    destinationCidrBlock: 0.0.0.0/0
-    region: us-east-1
-
+    gatewayIdSelector:
+      matchLabels:
+        environment: dev
+        project: sd4841
+        name: igw
+    routeTableIdSelector:
+      name: routetable-public
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
@@ -44,8 +55,16 @@ spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
   forProvider:
-    region: us-east-1
-
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: routetable-private
+    subnetIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: private-subnet-1
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
@@ -59,8 +78,16 @@ spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
   forProvider:
-    region: us-east-1
-
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: routetable-private
+    subnetIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: private-subnet-2
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
@@ -74,8 +101,16 @@ spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
   forProvider:
-    region: us-east-1
-
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: routetable-public
+    subnetIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: public-subnet-1
 ---
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: RouteTableAssociation
@@ -89,4 +124,13 @@ spec:
   providerConfigRef:
     name: aws-provider  # This line points to your specific ProviderConfig
   forProvider:
-    region: us-east-1
+    routeTableIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: routetable-public
+    subnetIdSelector:
+      matchLabels:
+        project: sd4841
+        environment: dev
+        name: public-subnet-2
