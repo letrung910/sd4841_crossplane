@@ -11,9 +11,9 @@ patchesStrategicMerge:
 - 8-route-table.yaml
 - 9-route.yaml
 
-resources:
-- 14-eks.yaml
-- 17-nodes.yaml
+# resources:
+# - 14-eks.yaml
+# - 17-nodes.yaml
 
 commonLabels:
   environment: dev
