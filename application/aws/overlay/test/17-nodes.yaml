@@ -23,15 +23,9 @@ spec:
       - desiredSize: 1
         minSize: 1
         maxSize: 2
-    subnetIdSelector:
-      - matchLabels:
-          name: private-subnet-1
-          project: sd4841
-          environment: test
-      - matchLabels:
-          name: private-subnet-2
-          project: sd4841
-          environment: test
+    subnetIdRefs:
+      - name: test-private-subnet-1
+      - name: test-private-subnet-2
 ---
 apiVersion: eks.aws.upbound.io/v1beta1
 kind: NodeGroup
@@ -61,12 +55,6 @@ spec:
       - desiredSize: 1
         minSize: 1
         maxSize: 2
-    subnetIdSelector:
-      - matchLabels:
-          name: private-subnet-1
-          project: sd4841
-          environment: test
-      - matchLabels:
-          name: private-subnet-2
-          project: sd4841
-          environment: test
+    subnetIdRefs:
+      - name: test-private-subnet-1
+      - name: test-private-subnet-2
