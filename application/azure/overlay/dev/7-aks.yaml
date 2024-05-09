@@ -14,11 +14,13 @@ spec:
       - name: default
         nodeCount: 1
         vmSize: Standard_D2_v2
-        vnetSubnetIdSelector:
-          matchLabels:
-            name: sub-crossplane
-            project: sd4841
-            environment: dev
+        vnetSubnetIdRef:
+          name: dev-sub-crossplane
+        # vnetSubnetIdSelector:
+        #   matchLabels:
+        #     name: sub-crossplane
+        #     project: sd4841
+        #     environment: dev
     dnsPrefix: aks
     identity:
       - type: SystemAssigned
