@@ -12,6 +12,7 @@ spec:
   forProvider:
     allocationIdSelector:
       matchLabels:
+        project: sd4841
         name: eip
     subnetIdSelector:
       matchLabels:
