@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../../base
+
+patchesStrategicMerge:
+- 4-virtual-network.yaml
+- 5-subnet.yaml
+- 7-aks.yaml
+commonLabels:
+  environment: test
+
+namePrefix: test-

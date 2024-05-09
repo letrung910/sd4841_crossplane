@@ -1,0 +1,12 @@
+apiVersion: network.azure.upbound.io/v1beta1
+kind: VirtualNetwork
+metadata:
+  name: vn-crossplane
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    name: vn-crossplane
+spec:
+  providerConfigRef:
+    name: azure-provider
+

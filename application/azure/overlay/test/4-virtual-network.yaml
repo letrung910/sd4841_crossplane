@@ -1,0 +1,18 @@
+apiVersion: network.azure.upbound.io/v1beta1
+kind: VirtualNetwork
+metadata:
+  name: vn-crossplane
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  providerConfigRef:
+    name: azure-provider
+  forProvider:
+    resourceGroupNameSelector:
+      matchLabels:
+        name: crossplane-rg-aks
+        environment: test
+        project: sd4841
+    location: Central US
+    addressSpace:
+      - 10.3.0.0/16
