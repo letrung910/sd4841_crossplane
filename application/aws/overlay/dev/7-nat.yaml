@@ -13,8 +13,6 @@ spec:
     allocationIdSelector:
       matchLabels:
         name: eip
-        project: sd4841
-        environment: dev
     subnetIdSelector:
       matchLabels:
         name: public-subnet-1
