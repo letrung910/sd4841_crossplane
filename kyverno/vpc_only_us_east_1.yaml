@@ -22,4 +22,4 @@ spec:
       pattern:
         spec:
           forProvider:
-            region: "?us-east-1*|?us-east-2*"
+            region: "*us-east-1"
