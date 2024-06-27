@@ -1,6 +1,37 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: kyverno-helm
+  namespace: argocd
+spec:
+  project: dev-sd4841-project
+  source:
+    chart: kyverno
+    repoURL: https://kyverno.github.io/kyverno/
+    targetRevision: 1.21.1
+    helm:
+      releaseName: kyverno
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kyverno
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    retry:
+      limit: 10
+      backoff:
+        duration: 15s
+        factor: 2
+        maxDuration: 3m
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: kyverno-dev
   namespace: argocd
 spec:
