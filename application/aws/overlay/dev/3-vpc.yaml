@@ -4,4 +4,4 @@ metadata:
   name: vpc-main
 spec:
   forProvider:
-    cidrBlock: 10.0.0.0/18
+    cidrBlock: 10.0.0.0/16
