@@ -1,25 +1,25 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: create_vpc_on_us_east
+  name: create-vpc-on-us-east
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-    policies.kyverno.io/title: create_vpc_on_us_east
+    policies.kyverno.io/title: create-vpc-on-us-east
     policies.kyverno.io/description: >-
-      Create vpc only on us_east.
+      Create vpc only on us east.
 spec:
   validationFailureAction: audit
   background: true
   rules:
-  - name: create_vpc_on_us_east
+  - name: create-vpc-on-us-east
     match:
       any:
       - resources:
           kinds:
           - VPC
     validate:
-      message: "Create vpc only on us_east."
+      message: "Create vpc only on us east."
       pattern:
         spec:
           forProvider:
-            region: "*us-east-1"
+            region: "*us-east-1 | *us-east-2"
