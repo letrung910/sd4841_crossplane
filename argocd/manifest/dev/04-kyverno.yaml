@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kyverno-dev
+  namespace: argocd
+spec:
+  destination:
+    name: in-cluster
+  project: dev-sd4841-project
+  source:
+    path: kyverno/overlay/dev
+    repoURL: https://github.com/letrung910/sd4841_crossplane.git
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kyverno
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    retry:
+      limit: 10
+      backoff:
+        duration: 15s
+        factor: 2
+        maxDuration: 3m
