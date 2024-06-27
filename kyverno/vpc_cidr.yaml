@@ -8,7 +8,7 @@ metadata:
     policies.kyverno.io/description: >-
       Require wildcard mask for cidrBlock equal 16.
 spec:
-  validationFailureAction: audit
+  validationFailureAction: Enforce
   background: true
   rules:
   - name: require-cidr-wildcard-mask
